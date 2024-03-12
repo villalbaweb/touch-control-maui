@@ -33,7 +33,7 @@ public partial class MainPage : ContentPage
         switch (e.StatusType)
         {
             case GestureStatus.Started:
-                if (Device.RuntimePlatform == Device.iOS)
+                if (DeviceInfo.Current.Platform == DevicePlatform.iOS)
                 {
                     tempx = label.TranslationX;
                     tempy = label.TranslationY;
@@ -42,12 +42,12 @@ public partial class MainPage : ContentPage
                 break;
 
             case GestureStatus.Running:
-                if (Device.RuntimePlatform == Device.iOS)
+                if (DeviceInfo.Current.Platform == DevicePlatform.iOS)
                 {
                     label.TranslationX = e.TotalX + tempx;
                     label.TranslationY = e.TotalY + tempy;
                 }
-                else if (Device.RuntimePlatform == Device.Android)
+                else if (DeviceInfo.Current.Platform == DevicePlatform.Android)
                 {
                     label.TranslationX += e.TotalX;
                     label.TranslationY += e.TotalY;
